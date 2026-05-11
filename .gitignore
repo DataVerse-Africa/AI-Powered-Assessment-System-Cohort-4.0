@@ -1,0 +1,35 @@
+# Environment & secrets — NEVER commit these
+.env
+
+# Database file (SQLite development database)
+*.db
+*.sqlite3
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.Python
+
+# Virtual environment
+venv/
+env/
+.venv/
+
+# Trained model artefacts (often too large for git — use git-lfs or cloud storage)
+saved_models/*.pkl
+saved_models/*.keras
+saved_models/*.h5
+saved_models/*.json
+
+# IDE
+.vscode/settings.json
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Uploaded images (temp files from CNN endpoint)
+uploads/
+temp/
