@@ -190,8 +190,8 @@ Install these from the Extensions panel (Ctrl+Shift+X):
 |---|---|---|
 | Step 1 | Database models + connection | `database/models.py`, `database/session.py` | ✅
 | Step 2 | Authentication (register, login, admin login) | `auth/security.py`, `auth/dependencies.py`, `auth/router.py`, `schemas/auth_schemas.py` | ✅
-| Step 3 | Clinical sessions (create, list, close, delete) | `routers/sessions.py`, `schemas/session_schemas.py` |
-| Step 4 | ML prediction endpoints | `routers/predictions.py`, `schemas/prediction_schemas.py`, `ml_models/*.py` |
+| Step 3 | Clinical sessions (create, list, close, delete) | `routers/sessions.py`, `schemas/session_schemas.py` | ✅
+| Step 4 | ML prediction endpoints | `routers/predictions.py`, `schemas/prediction_schemas.py`, `ml_models/*.py` | ✅
 | Step 5 | Patient user panel | `routers/user_panel.py`, `schemas/user_schemas.py` |
 | Step 6 | Admin panel + CSV export | `routers/admin_panel.py` |
 | Final | Wire everything together | `main.py` |

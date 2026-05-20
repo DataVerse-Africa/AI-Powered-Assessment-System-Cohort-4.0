@@ -33,7 +33,7 @@ from database.models import Base
 # ── Router imports — uncomment as we build each step ──────────────────
 from auth.router import router as auth_router        # Step 2 ✅
 from routers.sessions  import router as sessions_router    # Step 3 ✅
-# from routers.predictions import router as predictions_router # Step 4
+from routers.predictions import router as predictions_router # Step ✅
 # from routers.user_panel  import router as user_router      # Step 5
 # from routers.admin_panel import router as admin_router     # Step 6
 
@@ -68,7 +68,7 @@ app.add_middleware(
 # ── Register routers — uncomment as we build each step ────────────────
 app.include_router(auth_router)         # Step 2 ✅
 app.include_router(sessions_router)     # Step 3 ✅
-# app.include_router(predictions_router)  # Step 4
+app.include_router(predictions_router)  # Step 4 ✅
 # app.include_router(user_router)         # Step 5
 # app.include_router(admin_router)        # Step 6
 

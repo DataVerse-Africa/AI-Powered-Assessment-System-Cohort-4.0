@@ -271,7 +271,7 @@ def get_session_detail(
     predictions_list = [
         PredictionSummary(
             id=p.id,
-            model_name=p.model_name,
+            modelname=p.modelname,
             prediction_label=p.prediction_label,
             probability=p.probability,
             risk_level=p.risk_level,

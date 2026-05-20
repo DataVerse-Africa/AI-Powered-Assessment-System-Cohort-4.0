@@ -132,7 +132,7 @@ class PredictionSummary(BaseModel):
     id: int
     # Unique prediction ID
 
-    model_name: str
+    modelname:str
     # Which ML model was used:
     # 'diabetes' | 'cardiovascular' | 'ckd' | 'kidney_image'
 

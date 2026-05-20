@@ -285,7 +285,7 @@ class Prediction(Base):
     )
 
     # ── Which Model Was Used ──────────────────────────────────────────
-    model_name = Column(
+    modelname=Column(
         String(50),       # 'diabetes' | 'cardiovascular' | 'chest - Pneumonia' | 'kidney_image'
         nullable=False
     )

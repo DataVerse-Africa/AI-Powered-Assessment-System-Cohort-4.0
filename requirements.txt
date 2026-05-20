@@ -19,11 +19,11 @@ pydantic==2.7.1                    # request/response schemas (bundled with Fast
 email-validator==2.1.1             # validate email format in Pydantic
 
 # ── ML / Data ─────────────────────────────────────────────────────────
-# scikit-learn==1.4.2
-# numpy==1.26.4
-#pandas==2.2.2
-#joblib==1.4.2                      # load .pkl model files
+scikit-learn
+numpy
+pandas
+joblib                      # load .pkl model files
 
 # ── Deep Learning (CNN — Kidney Disease) ──────────────────────────────
-# tensorflow==2.16.1                 # or use tensorflow-cpu if no GPU
-# Pillow==10.3.0                     # image preprocessing before CNN inference
+tensorflow==2.16.1                 # or use tensorflow-cpu if no GPU
+Pillow==10.3.0                     # image preprocessing before CNN inference
