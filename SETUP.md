@@ -196,6 +196,15 @@ Install these from the Extensions panel (Ctrl+Shift+X):
 | Step 6 | Admin panel + CSV export | `routers/admin_panel.py` | ✅
 | Final | Wire everything together | `main.py` | ✅
 
+integrating the AI-Powered assistance aspect
+
+Build order:
+- create your groq account to get your API key
+`database/models.py` — add the ChatMessage table
+`schemas/chat_schemas.py` — request and response schemas
+`routers/chat.py` — the three chatbot endpoints
+`main.py` — register the chat router
+
 ---
 
 ### Running the Server (After All Steps Are Complete)

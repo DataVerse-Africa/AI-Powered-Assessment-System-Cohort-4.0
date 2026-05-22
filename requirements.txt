@@ -27,3 +27,5 @@ joblib                      # load .pkl model files
 # ── Deep Learning (CNN — Kidney Disease) ──────────────────────────────
 tensorflow==2.16.1                 # or use tensorflow-cpu if no GPU
 Pillow==10.3.0                     # image preprocessing before CNN inference
+groq
+openai
