@@ -24,10 +24,8 @@ from fastapi.responses import StreamingResponse
 # without saving a temp file to disk
 
 from sqlalchemy.orm import Session as DBSession
-from sqlalchemy import func, cast, Date
+from sqlalchemy import func
 # func — SQLAlchemy aggregate functions e.g. func.count()
-# cast — converts a column type e.g. DateTime → Date for grouping
-# Date — the SQLAlchemy Date type used in cast()
 
 from database.session import get_db
 from database.models import User, ClinicalSession, Prediction, AuditLog
@@ -423,15 +421,22 @@ def get_analytics(
     # Subtracting from now() gives us the date 30 days ago
 
     daily_activity = db.query(
-        cast(Prediction.created_at, Date).label('date'),
-        # cast(Prediction.created_at, Date) strips the time component
-        # e.g. '2026-05-01T14:30:00' → '2026-05-01'
+        func.strftime('%Y-%m-%d', Prediction.created_at).label('date'),
+        # func.strftime('%Y-%m-%d', ...) extracts just the date part from
+        # a datetime string e.g. '2026-05-01T14:30:00' → '2026-05-01'
+        # We use strftime instead of cast(Date) because SQLite stores
+        # datetimes as plain strings — cast() fails with a TypeError on SQLite.
+        # strftime is SQLite-native and works correctly here.
         func.count(Prediction.id).label('count')
+        # count(Prediction.id) counts how many predictions happened on each day
     ).filter(
         Prediction.created_at >= thirty_days_ago
+        # Only include predictions from the last 30 days
     ).group_by(
-        cast(Prediction.created_at, Date)
+        func.strftime('%Y-%m-%d', Prediction.created_at)
+        # Group by the same formatted date so each day gets one row
     ).order_by('date').all()
+    # order_by('date') sorts oldest to newest for the chart
 
     # ── Top 5 most active clinicians ──────────────────────────────────
     top_clinicians = db.query(

@@ -196,7 +196,7 @@ Install these from the Extensions panel (Ctrl+Shift+X):
 | Step 6 | Admin panel + CSV export | `routers/admin_panel.py` | ✅
 | Final | Wire everything together | `main.py` | ✅
 
-integrating the AI-Powered assistance aspect
+| Step 7 | integrating the AI-Powered assistance aspect ✅
 
 Build order:
 - create your groq account to get your API key
