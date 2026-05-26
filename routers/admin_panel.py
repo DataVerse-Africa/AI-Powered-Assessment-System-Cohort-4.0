@@ -426,7 +426,6 @@ def get_analytics(
         cast(Prediction.created_at, Date).label('date'),
         # cast(Prediction.created_at, Date) strips the time component
         # e.g. '2026-05-01T14:30:00' → '2026-05-01'
-        # This lets us group predictions by day
         func.count(Prediction.id).label('count')
     ).filter(
         Prediction.created_at >= thirty_days_ago
