@@ -51,14 +51,14 @@ jobs:
           docker pull dataverseafrica/patient-assessment-api:latest
           
           # Stop and remove old container
-          docker stop patient-assessment || true
-          docker rm patient-assessment || true
+          docker stop patient-assessment-api || true
+          docker rm patient-assessment-api || true
           
           # Run new container with restart policy
           docker run -d \
             -p 8000:8000 \
             --env-file /home/${{ secrets.EC2_USER }}/.env \
-            --name patient-assessment \
+            --name patient-assessment-api \
             --restart unless-stopped \
             dataverseafrica/patient-assessment-api:latest
           
@@ -66,4 +66,4 @@ jobs:
           docker ps
           
           # Show logs (last 50 lines)
-          docker logs --tail 50 patient-assessment
+          docker logs --tail 50 patient-assessment-api
